@@ -11,12 +11,13 @@
         android:id="@+id/appTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="124dp"
-        android:layout_marginTop="75dp"
+        android:layout_marginTop="84dp"
         android:text="Fish Game"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="#2F548C"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,11 +25,10 @@
         android:id="@+id/goal1Text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="104dp"
         android:layout_marginTop="288dp"
         android:text="Goal 1:"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/appTitle"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -56,13 +56,13 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="146dp"
+        android:layout_width="0dp"
         android:layout_height="95dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="1dp"
         android:contentDescription="Shark Picture"
         android:rotation="-35"
         android:src="@drawable/fish_game_shark"
+        app:layout_constraintEnd_toEndOf="@+id/appTitle"
         app:layout_constraintStart_toStartOf="@+id/appTitle"
         app:layout_constraintTop_toBottomOf="@+id/appTitle" />
 
@@ -70,10 +70,11 @@
         android:id="@+id/goal2Creature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
         android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/goal2Count"
-        app:layout_constraintStart_toStartOf="@+id/goal1Creature"
+        app:layout_constraintStart_toEndOf="@+id/goal2Count"
         app:layout_constraintTop_toTopOf="@+id/goal2Count"
         tools:text="Octopus" />
 
@@ -81,10 +82,11 @@
         android:id="@+id/goal3Creature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
         android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/goal3Count"
-        app:layout_constraintStart_toStartOf="@+id/goal2Creature"
+        app:layout_constraintStart_toEndOf="@+id/goal3Count"
         app:layout_constraintTop_toTopOf="@+id/goal3Count"
         tools:text="Shark" />
 
@@ -92,23 +94,26 @@
         android:id="@+id/goal1Creature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+
+        android:layout_marginStart="5dp"
         android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/goal1Count"
         app:layout_constraintStart_toEndOf="@+id/goal1Count"
         app:layout_constraintTop_toTopOf="@+id/goal1Count"
+        app:layout_constraintVertical_bias="0.0"
         tools:text="Salmon" />
 
     <SeekBar
         android:id="@+id/difficultySeekBar"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:layout_width="121dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="4dp"
         android:max="3"
         app:layout_constraintBottom_toBottomOf="@+id/difficulty"
-        app:layout_constraintStart_toStartOf="@+id/goal3Count"
+        app:layout_constraintStart_toEndOf="@+id/difficulty"
         app:layout_constraintTop_toTopOf="@+id/difficulty"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/difficulty"
@@ -125,24 +130,28 @@
         android:id="@+id/goal1Count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
+        android:layout_alignParentRight="false"
+        android:layout_marginStart="10dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/goal1Text"
         app:layout_constraintStart_toEndOf="@+id/goal1Text"
         app:layout_constraintTop_toTopOf="@+id/goal1Text"
+        app:layout_constraintVertical_bias="0.666"
         tools:text="2" />
 
     <TextView
         android:id="@+id/goal2Count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:gravity="right"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/goal2Text"
-        app:layout_constraintStart_toStartOf="@+id/goal1Count"
+        app:layout_constraintStart_toEndOf="@+id/goal2Text"
         app:layout_constraintTop_toTopOf="@+id/goal2Text"
         tools:text="4" />
 
@@ -150,11 +159,13 @@
         android:id="@+id/goal3Count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:gravity="right"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/goal3Text"
-        app:layout_constraintStart_toStartOf="@+id/goal2Count"
+        app:layout_constraintStart_toEndOf="@+id/goal3Text"
         app:layout_constraintTop_toTopOf="@+id/goal3Text"
         tools:text="3" />
 

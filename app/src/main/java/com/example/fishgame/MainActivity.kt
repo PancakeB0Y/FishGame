@@ -51,7 +51,7 @@ class MainActivity : ComponentActivity() {
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
                 goal1Count.text = (fishCount[0] * (p1 + 1)).toString()
                 goal2Count.text = (fishCount[1] * (p1 + 1)).toString()
-                goal3Count.text = (fishCount[2] * (p1 + 1)).toString()
+                goal3Count.text = (fishCount[2] * (p1 + 1) ).toString()
             }
 
             override fun onStartTrackingTouch(p0: SeekBar?) {
