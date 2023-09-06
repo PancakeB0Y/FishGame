@@ -6,8 +6,6 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
-    <!-- Text on left side -->
-
     <TextView
         android:id="@+id/appTitle"
         android:layout_width="wrap_content"
@@ -22,43 +20,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/objective1Text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="260dp"
-        android:text="Objective 1:"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/objective2Text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="Objective 2:"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="@id/objective1Text"
-        app:layout_constraintTop_toBottomOf="@id/objective1Text" />
-
-    <TextView
-        android:id="@+id/objective3Text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:clickable="false"
-        android:text="Objective 3:"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="@id/objective1Text"
-        app:layout_constraintTop_toBottomOf="@id/objective2Text" />
-
-
-    <!-- Text on right side -->
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="0dp"
@@ -71,60 +32,343 @@
         app:layout_constraintStart_toStartOf="@+id/appTitle"
         app:layout_constraintTop_toBottomOf="@+id/appTitle" />
 
-    <TextView
-        android:id="@+id/objective2Fish"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/objective2Count"
-        app:layout_constraintStart_toEndOf="@+id/objective2Count"
-        app:layout_constraintTop_toTopOf="@+id/objective2Count"
-        tools:text="Octopus" />
-
-    <TextView
-        android:id="@+id/objective3Fish"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:clickable="false"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/objective3Count"
-        app:layout_constraintStart_toEndOf="@+id/objective3Count"
-        app:layout_constraintTop_toTopOf="@+id/objective3Count"
-        tools:text="Shark" />
-
-    <TextView
-        android:id="@+id/objective1Fish"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_marginStart="5dp"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/objective1Count"
-        app:layout_constraintStart_toEndOf="@+id/objective1Count"
-        app:layout_constraintTop_toTopOf="@+id/objective1Count"
-        app:layout_constraintVertical_bias="0.0"
-        tools:text="Salmon" />
-
-    <TextView
-        android:id="@+id/difficulty"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="16dp"
-        android:text="Difficulty:"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/difficultySeekBar"
+    <HorizontalScrollView
+        android:layout_width="421dp"
+        android:layout_height="213dp"
+        android:layout_marginTop="236dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/objective3Text" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:fillViewport="true"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".MainActivity">
+
+            <TextView
+                android:id="@+id/objective1Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="15dp"
+                android:text="Objectives 1:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/objective1Fish2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="9dp"
+                android:clickable="false"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toStartOf="@+id/objective1Count2"
+                app:layout_constraintTop_toBottomOf="@+id/objective1Fish1"
+                tools:text="☆☆Jellyfish" />
+
+
+            <TextView
+                android:id="@+id/objective1Fish3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="9dp"
+                android:clickable="false"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toStartOf="@+id/objective1Count3"
+                app:layout_constraintTop_toBottomOf="@+id/objective1Fish2"
+                tools:text="☆☆☆Shark" />
+
+            <TextView
+                android:id="@+id/objective1Fish1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="9dp"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@+id/objective1Count1"
+                app:layout_constraintTop_toBottomOf="@+id/objective1Text"
+                tools:text="☆Cod" />
+
+            <TextView
+                android:id="@+id/objective1Count1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="false"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/objective1Fish1"
+                app:layout_constraintEnd_toEndOf="@+id/objective1Text"
+                app:layout_constraintTop_toTopOf="@+id/objective1Fish1"
+                tools:text="2" />
+
+            <TextView
+                android:id="@+id/objective1Count2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:gravity="right"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="@+id/objective1Fish2"
+                app:layout_constraintEnd_toEndOf="@+id/objective1Count1"
+                app:layout_constraintTop_toTopOf="@+id/objective1Fish2"
+                tools:text="2" />
+
+            <TextView
+                android:id="@+id/objective1Count3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:gravity="right"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="@+id/objective1Fish3"
+                app:layout_constraintEnd_toEndOf="@+id/objective1Count2"
+                app:layout_constraintTop_toTopOf="@+id/objective1Fish3"
+                tools:text="1" />
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@color/button_background_color"
+                android:clickable="true"
+                android:text="complete"
+                android:textColor="@color/button_text_color"
+                android:textSize="12sp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="@+id/objective1Count3"
+                app:layout_constraintTop_toBottomOf="@+id/objective1Fish3" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@color/button_background_color"
+                android:clickable="false"
+                android:text="complete"
+                android:textColor="@color/button_text_color"
+                android:textSize="12sp"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="@+id/objective2Count3"
+                app:layout_constraintTop_toBottomOf="@+id/objective2Fish3" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@color/button_background_color"
+                android:clickable="false"
+                android:text="complete"
+                android:textColor="@color/button_text_color"
+                android:textSize="12sp"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="@+id/objective3Count3"
+                app:layout_constraintTop_toBottomOf="@+id/objective3Fish3" />
+
+            <TextView
+                android:id="@+id/objective2Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="15dp"
+                android:text="Objectives 2:"
+                android:textSize="12sp"
+                android:visibility="invisible"
+                app:layout_constraintStart_toEndOf="@+id/objective1Text"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/objective3Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="40dp"
+                android:text="Objectives 3:"
+                android:textSize="12sp"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/objective2Text"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/objective2Fish1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="9dp"
+                android:text="☆Cod"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toStartOf="@+id/objective2Count1"
+                app:layout_constraintTop_toBottomOf="@+id/objective2Text" />
+
+            <TextView
+                android:id="@+id/objective2Fish2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="9dp"
+                android:text="☆☆Jellyfish"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@+id/objective1Count2"
+                app:layout_constraintEnd_toStartOf="@+id/objective2Count2"
+                app:layout_constraintTop_toTopOf="@+id/objective1Count2" />
+
+            <TextView
+                android:id="@+id/objective2Fish3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="9dp"
+                android:text="☆☆☆Shark"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@+id/objective1Count3"
+                app:layout_constraintEnd_toStartOf="@+id/objective2Count3"
+                app:layout_constraintTop_toTopOf="@+id/objective1Count3" />
+
+            <TextView
+                android:id="@+id/objective2Count1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@+id/objective2Fish1"
+                app:layout_constraintEnd_toEndOf="@+id/objective2Text"
+                app:layout_constraintTop_toTopOf="@+id/objective2Fish1" />
+
+            <TextView
+                android:id="@+id/objective2Count2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@+id/objective2Fish2"
+                app:layout_constraintEnd_toEndOf="@+id/objective2Count1"
+                app:layout_constraintTop_toTopOf="@+id/objective2Fish2"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <TextView
+                android:id="@+id/objective2Count3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@+id/objective2Fish3"
+                app:layout_constraintEnd_toEndOf="@+id/objective2Count2"
+                app:layout_constraintTop_toTopOf="@+id/objective2Fish3" />
+
+            <TextView
+                android:id="@+id/objective3Fish1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="9dp"
+                android:text="☆Cod"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toStartOf="@+id/objective3Count1"
+                app:layout_constraintTop_toBottomOf="@+id/objective3Text" />
+
+            <TextView
+                android:id="@+id/objective3Fish3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="9dp"
+                android:text="☆☆☆Shark"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@+id/objective1Count3"
+                app:layout_constraintEnd_toStartOf="@+id/objective3Count3"
+                app:layout_constraintTop_toTopOf="@+id/objective1Count3"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <TextView
+                android:id="@+id/objective3Count1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@+id/objective2Fish1"
+                app:layout_constraintEnd_toEndOf="@+id/objective3Text"
+                app:layout_constraintTop_toTopOf="@+id/objective2Fish1"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <TextView
+                android:id="@+id/objective3Count2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@+id/objective2Fish2"
+                app:layout_constraintEnd_toEndOf="@+id/objective3Count1"
+                app:layout_constraintTop_toTopOf="@+id/objective2Fish2"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <TextView
+                android:id="@+id/objective3Count3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@+id/objective2Fish3"
+                app:layout_constraintEnd_toEndOf="@+id/objective3Count2"
+                app:layout_constraintTop_toTopOf="@+id/objective2Fish3"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <TextView
+                android:id="@+id/objective3Fish2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="9dp"
+                android:text="☆☆Jellyfish"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@+id/objective1Count2"
+                app:layout_constraintEnd_toStartOf="@+id/objective3Count2"
+                app:layout_constraintTop_toTopOf="@+id/objective1Count2"
+                app:layout_constraintVertical_bias="1.0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </HorizontalScrollView>
 
     <SeekBar
         android:id="@+id/difficultySeekBar"
@@ -138,90 +382,18 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/objective1Count"
+        android:id="@+id/difficulty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="false"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="324dp"
+        android:layout_marginEnd="16dp"
+        android:text="Difficulty:"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/objective1Text"
-        app:layout_constraintStart_toEndOf="@+id/objective1Text"
-        app:layout_constraintTop_toTopOf="@+id/objective1Text"
-        app:layout_constraintVertical_bias="0.666"
-        tools:text="2" />
-
-    <TextView
-        android:id="@+id/objective2Count"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:gravity="right"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/objective2Text"
-        app:layout_constraintStart_toEndOf="@+id/objective2Text"
-        app:layout_constraintTop_toTopOf="@+id/objective2Text"
-        tools:text="4" />
-
-    <TextView
-        android:id="@+id/objective3Count"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:clickable="false"
-        android:gravity="right"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/objective3Text"
-        app:layout_constraintStart_toEndOf="@+id/objective3Text"
-        app:layout_constraintTop_toTopOf="@+id/objective3Text"
-        tools:text="3" />
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        android:backgroundTint="@color/button_background_color"
-        android:clickable="true"
-        android:text="complete"
-        android:textColor="@color/button_text_color"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="@+id/objective1Fish"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/objective1Fish" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/button_background_color"
-        android:clickable="false"
-        android:text="complete"
-        android:textColor="@color/button_text_color"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/objective2Fish"
-        app:layout_constraintEnd_toEndOf="@+id/button1"
-        app:layout_constraintTop_toTopOf="@+id/objective2Fish" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/button_background_color"
-        android:clickable="false"
-        android:text="complete"
-        android:textColor="@color/button_text_color"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/objective3Fish"
-        app:layout_constraintEnd_toEndOf="@+id/button2"
-        app:layout_constraintTop_toTopOf="@+id/objective3Fish" />
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/difficultySeekBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
         android:id="@+id/resetButton"
@@ -231,12 +403,13 @@
         android:layout_marginTop="64dp"
         android:background="#FFFFFF"
         android:backgroundTint="#A0E0FD"
-        android:text="Reset"
         android:onClick="reset"
+        android:text="Reset"
         android:textColor="#03495A"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/difficultySeekBar" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
