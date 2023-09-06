@@ -38,6 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="235dp"
         android:fillViewport="true"
+        android:scrollbars="none"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -84,7 +85,7 @@
                 android:visibility="visible"
                 app:layout_constraintEnd_toStartOf="@+id/objective1Count2"
                 app:layout_constraintTop_toBottomOf="@+id/objective1Fish1"
-                tools:text="☆☆Jellyfish" />
+                tools:text="☆Salmon" />
 
 
             <TextView
@@ -99,7 +100,7 @@
                 android:visibility="visible"
                 app:layout_constraintEnd_toStartOf="@+id/objective1Count3"
                 app:layout_constraintTop_toBottomOf="@+id/objective1Fish2"
-                tools:text="☆☆☆Shark" />
+                tools:text="☆☆Eel" />
 
 
             <TextView
@@ -431,6 +432,7 @@
         android:layout_width="67dp"
         android:layout_height="48dp"
         android:backgroundTint="#DE8AFD"
+        android:onClick="openEvents"
         android:text="Events"
         android:textSize="10sp"
         android:textStyle="bold"

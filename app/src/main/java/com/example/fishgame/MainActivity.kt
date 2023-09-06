@@ -2,6 +2,7 @@ package com.example.fishgame
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.SeekBar
@@ -281,9 +282,16 @@ class MainActivity : ComponentActivity() {
         recreate()
     }
 
-    //Open the rule page
+    //Open the rules page
     fun openRules(view: View) {
         val intent = Intent(this@MainActivity, Rules::class.java)
+        startActivity(intent)
+    }
+
+    //Open the events page
+    fun openEvents(view: View) {
+        val intent = Intent(this@MainActivity, Events::class.java)
+        Log.i("events", "press events button")
         startActivity(intent)
     }
 }

@@ -19,12 +19,13 @@
 
     <Button
         android:id="@+id/closeRulesButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="67dp"
+        android:layout_height="48dp"
         android:backgroundTint="#FF6D6D"
         android:onClick="closeRules"
-        android:text="Close Rules"
+        android:text="Close"
         android:textColor="#0C0C0C"
+        android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
