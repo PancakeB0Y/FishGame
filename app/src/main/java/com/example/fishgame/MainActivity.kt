@@ -43,9 +43,24 @@ class MainActivity : ComponentActivity() {
     private lateinit var difficultySeekBar: SeekBar
 
     private var allFish = arrayListOf(
-        "Cod", "Salmon", "Tuna", "Shrimp", "Sturgeon", "Starfish",
-        "Jellyfish", "Eel", "Sea urchin", "Turtle", "Moonfish",
-        "Shark", "Anglerfish", "Giant squid", "Undead fish", "Magic fish"
+        "☆Cod",
+        "☆Salmon",
+        "☆Tuna",
+        "☆Shrimp",
+        "☆Starfish",
+        "☆Sturgeon",
+        "☆☆Jellyfish",
+        "☆☆Eel",
+        "☆☆Sea urchin",
+        "☆☆Turtle",
+        "☆☆Moonfish",
+        "☆☆Sturgeon",
+        "☆☆☆Shark",
+        "☆☆☆Anglerfish",
+        "☆☆☆Giant squid",
+        "☆☆☆Undead fish",
+        "☆☆☆Magic fish",
+        "☆☆☆Sturgeon"
     )
 
     //Create arraylists with the fish from each tier
@@ -80,19 +95,20 @@ class MainActivity : ComponentActivity() {
         objective1Count3 = findViewById(R.id.objective1Count3)
 
         //Randomize the first objective fish
+        //Objective 1 -  (2☆ and 1☆☆) or (3☆)
         tier1Fish.shuffle()
-        tier2Fish.shuffle()
-        tier3Fish.shuffle()
         objective1Fish1.text = tier1Fish[0]
-        objective1Fish2.text = tier2Fish[1]
-        objective1Fish3.text = tier3Fish[2]
-
-        tier1Count = tier1Count.shuffled()
-        tier2Count = tier2Count.shuffled()
-        tier3Count = tier3Count.shuffled()
-        objective1Count1.text = tier1Count[0].toString()
-        objective1Count2.text = tier2Count[1].toString()
-        objective1Count3.text = tier3Count[2].toString()
+        objective1Fish2.text = tier1Fish[1]
+        objective1Count1.text = "2"
+        objective1Count2.text = "2"
+        if (Math.random() > 0.5) {
+            tier2Fish.shuffle()
+            objective1Fish3.text = tier2Fish[0]
+            objective1Count3.text = "1"
+        } else {
+            objective1Fish3.text = tier1Fish[2]
+            objective1Count3.text = "2"
+        }
 
         //Initialize the second objective fish
         objective2Fish1 = findViewById(R.id.objective2Fish1)
@@ -103,19 +119,20 @@ class MainActivity : ComponentActivity() {
         objective2Count3 = findViewById(R.id.objective2Count3)
 
         //Randomize the second objective fish
-        tier1Fish.shuffle()
+        //Objective 2 - (1☆ and 2☆☆) or (3☆☆)
         tier2Fish.shuffle()
-        tier3Fish.shuffle()
-        objective2Fish1.text = tier1Fish[0]
-        objective2Fish2.text = tier2Fish[1]
-        objective2Fish3.text = tier3Fish[2]
-
-        tier1Count = tier1Count.shuffled()
-        tier2Count = tier2Count.shuffled()
-        tier3Count = tier3Count.shuffled()
-        objective2Count1.text = tier1Count[0].toString()
-        objective2Count2.text = tier2Count[1].toString()
-        objective2Count3.text = tier3Count[2].toString()
+        objective2Fish2.text = tier2Fish[0]
+        objective2Fish3.text = tier2Fish[1]
+        objective2Count2.text = "1"
+        objective2Count3.text = "1"
+        if (Math.random() > 0.5) {
+            tier1Fish.shuffle()
+            objective2Fish1.text = tier1Fish[0]
+            objective2Count1.text = "2"
+        } else {
+            objective2Fish1.text = tier2Fish[2]
+            objective2Count1.text = "1"
+        }
 
         //Initialize the third objective fish
         objective3Fish1 = findViewById(R.id.objective3Fish1)
@@ -126,21 +143,29 @@ class MainActivity : ComponentActivity() {
         objective3Count3 = findViewById(R.id.objective3Count3)
 
         //Randomize the third objective fish
-        tier1Fish.shuffle()
+        //Objective 3 - (1☆, 1☆☆ and 1☆☆☆) or (2☆☆ and 1☆☆☆) or (1☆☆ and 2☆☆☆)
         tier2Fish.shuffle()
         tier3Fish.shuffle()
-        objective2Fish1.text = tier1Fish[0]
-        objective2Fish2.text = tier2Fish[1]
-        objective2Fish3.text = tier3Fish[2]
+        objective3Fish3.text = tier3Fish[0]
+        objective3Count2.text = "1"
+        objective3Count3.text = "1"
+        val randNumber = Random.nextInt(0, 3)
+        if (randNumber == 0) {
+            tier1Fish.shuffle()
+            objective3Fish1.text = tier1Fish[0]
+            objective3Fish2.text = tier2Fish[0]
+            objective3Count1.text = "2"
+        } else if (randNumber == 1) {
+            objective3Fish1.text = tier2Fish[0]
+            objective3Fish2.text = tier2Fish[1]
+            objective3Count1.text = "1"
+        } else {
+            objective3Fish1.text = tier2Fish[0]
+            objective3Fish2.text = tier3Fish[1]
+            objective3Count1.text = "1"
+        }
 
-        tier1Count = tier1Count.shuffled()
-        tier2Count = tier2Count.shuffled()
-        tier3Count = tier3Count.shuffled()
-        objective2Count1.text = tier1Count[0].toString()
-        objective2Count2.text = tier2Count[1].toString()
-        objective2Count3.text = tier3Count[2].toString()
-
-        //Initialize Objectives text
+        //Initialize objectives text
         objective2Text = findViewById(R.id.objective2Text)
         objective3Text = findViewById(R.id.objective3Text)
 
@@ -156,18 +181,41 @@ class MainActivity : ComponentActivity() {
 
         //Change the fish count required when sliding the seek bar
         difficultySeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            //Save all objective counts at the easiest difficulty in a list
+            private val initialCounts =
+                arrayListOf(
+                    objective1Count1.text.toString().toInt(),
+                    objective1Count2.text.toString().toInt(),
+                    objective1Count3.text.toString().toInt(),
+                    objective2Count1.text.toString().toInt(),
+                    objective2Count2.text.toString().toInt(),
+                    objective2Count3.text.toString().toInt(),
+                    objective3Count1.text.toString().toInt(),
+                    objective3Count2.text.toString().toInt(),
+                    objective3Count3.text.toString().toInt()
+                )
+
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
-                objective1Count1.text = (tier1Count[0] * (p1 + 1)).toString()
-                objective1Count2.text = (tier2Count[0] * (p1 + 1)).toString()
-                objective1Count3.text = (tier3Count[0] * (p1 + 1)).toString()
+                objective1Count1.text =
+                    (initialCounts[0] * (p1 + 1)).toString()
+                objective1Count2.text =
+                    (initialCounts[1] * (p1 + 1)).toString()
+                objective1Count3.text =
+                    (initialCounts[2] * (p1 + 1)).toString()
 
-                objective2Count1.text = (tier1Count[0] * (p1 + 1)).toString()
-                objective2Count2.text = (tier2Count[0] * (p1 + 1)).toString()
-                objective2Count3.text = (tier3Count[0] * (p1 + 1)).toString()
+                objective2Count1.text =
+                    (initialCounts[3] * (p1 + 1)).toString()
+                objective2Count2.text =
+                    (initialCounts[4] * (p1 + 1)).toString()
+                objective2Count3.text =
+                    (initialCounts[5] * (p1 + 1)).toString()
 
-                objective3Count1.text = (tier1Count[0] * (p1 + 1)).toString()
-                objective3Count2.text = (tier2Count[0] * (p1 + 1)).toString()
-                objective3Count3.text = (tier3Count[0] * (p1 + 1)).toString()
+                objective3Count1.text =
+                    (initialCounts[6] * (p1 + 1)).toString()
+                objective3Count2.text =
+                    (initialCounts[7] * (p1 + 1)).toString()
+                objective3Count3.text =
+                    (initialCounts[8] * (p1 + 1)).toString()
             }
 
             override fun onStartTrackingTouch(p0: SeekBar?) {
@@ -178,7 +226,7 @@ class MainActivity : ComponentActivity() {
 
         })
 
-        //When the buttons are pressed -> changes their color and makes the next objectives visible
+        //When the buttons are pressed -> change their color and make the next objectives visible
         button1.setOnClickListener {
             //When the selected state changes ->
             //the colors of the button change from res/color/button_background_color.xml and res/color/button_text_color.xml
@@ -197,8 +245,8 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    //Changes the text on the button and makes the next objective visible
-    fun complete1() {
+    //Change the text on the button and make the next objective visible
+    private fun complete1() {
         objective2Text.visibility = View.VISIBLE
         objective2Fish1.visibility = View.VISIBLE
         objective2Fish2.visibility = View.VISIBLE
@@ -211,7 +259,7 @@ class MainActivity : ComponentActivity() {
         button1.text = "completed"
     }
 
-    fun complete2() {
+    private fun complete2() {
         objective3Text.visibility = View.VISIBLE
         objective3Fish1.visibility = View.VISIBLE
         objective3Fish2.visibility = View.VISIBLE
@@ -224,16 +272,18 @@ class MainActivity : ComponentActivity() {
         button2.text = "completed"
     }
 
-    fun complete3() {
+    private fun complete3() {
         button3.text = "completed"
     }
 
+    //Reset the app
     fun reset(view: View) {
         recreate()
     }
 
-    fun openRules(view: View){
-        val intent = Intent(this@MainActivity,Rules::class.java)
+    //Open the rule page
+    fun openRules(view: View) {
+        val intent = Intent(this@MainActivity, Rules::class.java)
         startActivity(intent)
     }
 }

@@ -44,6 +44,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingRight="10dp"
             tools:context=".MainActivity">
 
             <TextView
@@ -57,6 +58,19 @@
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/objective1Fish1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="9dp"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@+id/objective1Count1"
+                app:layout_constraintTop_toBottomOf="@+id/objective1Text"
+                tools:text="☆Cod" />
 
             <TextView
                 android:id="@+id/objective1Fish2"
@@ -87,18 +101,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/objective1Fish2"
                 tools:text="☆☆☆Shark" />
 
-            <TextView
-                android:id="@+id/objective1Fish1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="9dp"
-                android:textColor="#000000"
-                android:textSize="14sp"
-                app:layout_constraintEnd_toStartOf="@+id/objective1Count1"
-                app:layout_constraintTop_toBottomOf="@+id/objective1Text"
-                tools:text="☆Cod" />
 
             <TextView
                 android:id="@+id/objective1Count1"
@@ -301,6 +303,20 @@
                 app:layout_constraintTop_toBottomOf="@+id/objective3Text" />
 
             <TextView
+                android:id="@+id/objective3Fish2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="9dp"
+                android:text="☆☆Jellyfish"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/objective1Count2"
+                app:layout_constraintEnd_toStartOf="@+id/objective3Count2"
+                app:layout_constraintTop_toTopOf="@+id/objective1Count2"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <TextView
                 android:id="@+id/objective3Fish3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -353,19 +369,6 @@
                 app:layout_constraintTop_toTopOf="@+id/objective2Fish3"
                 app:layout_constraintVertical_bias="1.0" />
 
-            <TextView
-                android:id="@+id/objective3Fish2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="9dp"
-                android:text="☆☆Jellyfish"
-                android:textColor="#000000"
-                android:textSize="14sp"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="@+id/objective1Count2"
-                app:layout_constraintEnd_toStartOf="@+id/objective3Count2"
-                app:layout_constraintTop_toTopOf="@+id/objective1Count2"
-                app:layout_constraintVertical_bias="1.0" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </HorizontalScrollView>
@@ -402,7 +405,7 @@
         android:layout_marginStart="112dp"
         android:layout_marginTop="64dp"
         android:background="#FFFFFF"
-        android:backgroundTint="#A0E0FD"
+        android:backgroundTint="#ADE5FF"
         android:onClick="reset"
         android:text="Reset"
         android:textColor="#03495A"
@@ -415,14 +418,23 @@
         android:id="@+id/rulesButton"
         android:layout_width="67dp"
         android:layout_height="48dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="15dp"
+        android:backgroundTint="#abf095"
         android:onClick="openRules"
         android:text="Rules"
         android:textSize="10sp"
         android:textStyle="bold"
-        android:backgroundTint="#abf095"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/eventsButton"
+        android:layout_width="67dp"
+        android:layout_height="48dp"
+        android:backgroundTint="#DE8AFD"
+        android:text="Events"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 

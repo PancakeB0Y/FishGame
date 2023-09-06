@@ -1,40 +1,525 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    tools:layout_editor_absoluteX="1dp"
-    tools:layout_editor_absoluteY="1dp">
+    tools:context=".Rules">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/rulesTitle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:context=".Rules">
+        android:text="Rules"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/rulesTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="52dp"
-            android:text="Rules"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <Button
+        android:id="@+id/closeRulesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FF6D6D"
+        android:onClick="closeRules"
+        android:text="Close Rules"
+        android:textColor="#0C0C0C"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/closeRulesButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#FF6D6D"
-            android:text="Close Rules"
-            android:onClick="closeRules"
-            android:textColor="#0C0C0C"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="100dp"
+        android:fillViewport="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-</ScrollView>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="120dp"
+            tools:context=".Rules">
+
+            <TextView
+                android:id="@+id/goalTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="The Goal:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/goalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="The goal of the game is to work together with the other players to finish the Objectives by delivering items to the Royal Academy before you run out of turns. Being unable to meet their “dead-line” comes with terrible consequences... "
+                app:layout_constraintStart_toStartOf="@+id/goalTitle"
+                app:layout_constraintTop_toBottomOf="@+id/goalTitle" />
+
+            <TextView
+                android:id="@+id/mapTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Map:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/goalText"
+                app:layout_constraintTop_toBottomOf="@+id/goalText" />
+
+            <TextView
+                android:id="@+id/mapText1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="The map is divided into Tiles, some of which are marked as Fishing Spots, numbered from 1 to 3, representing the rarity of the items that can be collected from each place. Islands are also present on the map, acting as barriers that the players must go around when traversing the map."
+                app:layout_constraintStart_toStartOf="@+id/mapTitle"
+                app:layout_constraintTop_toBottomOf="@+id/mapTitle" />
+
+            <TextView
+                android:id="@+id/mapText2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="     • The Royal Academy is a special Tile located on the bottom of the map and acts as a hub for all players. This area does not come with any movement restrictions and allows players to interact with the Store, where they can Sell or Buy items for Gold. "
+                app:layout_constraintStart_toStartOf="@+id/mapText1"
+                app:layout_constraintTop_toBottomOf="@+id/mapText1" />
+
+            <TextView
+                android:id="@+id/objectivesTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Objectives:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/mapText2"
+                app:layout_constraintTop_toBottomOf="@+id/mapText2" />
+
+            <TextView
+                android:id="@+id/objectivesText1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="The Objectives are cards that display several items the players must Deliver to the Royal Academy to advance and ultimately win the game. Objectives come in 3 different difficulty levels. Randomized Objectives may also be generated by the mobile app. Players have a limited number of turns to finish each Objective or else they lose the game (1st – 10 turns, 2nd – 7 turns, 3rd – 5 turns).  "
+                app:layout_constraintStart_toStartOf="@+id/objectivesTitle"
+                app:layout_constraintTop_toBottomOf="@+id/objectivesTitle" />
+
+            <TextView
+                android:id="@+id/objectivesText2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="2dp"
+                android:text=" • Even if players have not used all their designated turns for an Objective, leftover turns will NOT be added to the limit for the next Objective."
+                app:layout_constraintStart_toStartOf="@+id/objectivesText1"
+                app:layout_constraintTop_toBottomOf="@+id/objectivesText1" />
+
+            <TextView
+                android:id="@+id/objectivesText3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text=" • You may not Deliver items requested by any Objective other than the first in line (e.g., If there are 3 Objectives still in play, you may only Deliver the items requested by the 2nd or 3rd Objective)"
+                app:layout_constraintStart_toStartOf="@+id/objectivesText2"
+                app:layout_constraintTop_toBottomOf="@+id/objectivesText2" />
+
+            <TextView
+                android:id="@+id/inventoryTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Inventory:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/objectivesTitle"
+                app:layout_constraintTop_toBottomOf="@+id/objectivesText3" />
+
+            <TextView
+                android:id="@+id/inventoryText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="The Inventory is a designated area unique to each player that can store up to 6 regular items and up to three different equipment cards."
+                app:layout_constraintStart_toStartOf="@+id/inventoryTitle"
+                app:layout_constraintTop_toBottomOf="@+id/inventoryTitle" />
+
+            <TextView
+                android:id="@+id/fishingPilesTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Fishing Piles:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/inventoryText"
+                app:layout_constraintTop_toBottomOf="@+id/inventoryText" />
+
+            <TextView
+                android:id="@+id/fishingPilesText1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Fishing Piles are areas where decks of cards marked with the same number on their backs are placed. When a Fishing Pile is emptied, all cards in its Discard Pile are shuffled and placed back in the Fishing Pile. Fishing Pile decks consist of a combination of the following: "
+                app:layout_constraintStart_toStartOf="@+id/objectivesText1"
+                app:layout_constraintTop_toBottomOf="@+id/fishingPilesTitle" />
+
+            <TextView
+                android:id="@+id/fishingPilesText2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text=" • Fish: the primary focus of the game and the items that players will interact with the most. Their rarity can be determined by the number of the Fishing Spot."
+                app:layout_constraintStart_toStartOf="@+id/objectivesText2"
+                app:layout_constraintTop_toBottomOf="@+id/fishingPilesText1" />
+
+            <TextView
+                android:id="@+id/fishingPilesText3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text=" • Debris: items that have no use other than encumbering the players."
+                app:layout_constraintStart_toStartOf="@+id/fishingPilesText2"
+                app:layout_constraintTop_toBottomOf="@+id/fishingPilesText2" />
+
+            <TextView
+                android:id="@+id/fishingPilesText4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text=" • Equipment: special items that augment the players’ Fishing action. These items are not moved to Discard Piles when used."
+                app:layout_constraintStart_toStartOf="@+id/fishingPilesText3"
+                app:layout_constraintTop_toBottomOf="@+id/fishingPilesText3" />
+
+            <TextView
+                android:id="@+id/fishingPilesText5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="2dp"
+                android:text="--> Fish Trap: can be placed in a Fishing Spot. Allows any player in that Tile to take a single Fishing action per turn without using Action Points. Can be used in level 1 Fishing Spots."
+                app:layout_constraintStart_toStartOf="@+id/fishingPilesText4"
+                app:layout_constraintTop_toBottomOf="@+id/fishingPilesText4" />
+
+            <TextView
+                android:id="@+id/fishingPilesText6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="--> Fishing Net: allows the Fishing player to draw 2 cards from the Fishing Pile. Can be used in level 1 and 2 Fishing Spots."
+                app:layout_constraintStart_toStartOf="@+id/fishingPilesText5"
+                app:layout_constraintTop_toBottomOf="@+id/fishingPilesText5" />
+
+            <TextView
+                android:id="@+id/fishingPilesText7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="--> The Holy Fish Hook: allows the Fishing player to draw 4 cards from the Fishing Pile, allowing them to keep one in their Inventory while putting the rest on the bottom of that Fishing Pile. Can be used in all levels of Fishing Spots."
+                app:layout_constraintStart_toStartOf="@+id/fishingPilesText6"
+                app:layout_constraintTop_toBottomOf="@+id/fishingPilesText6" />
+
+            <TextView
+                android:id="@+id/discardPilesTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Discard Piles:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/fishingPilesTitle"
+                app:layout_constraintTop_toBottomOf="@+id/fishingPilesText7" />
+
+            <TextView
+                android:id="@+id/discardPilesText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Discard Piles are areas where Sold and Delivered items are placed until the emptying of their respective Fishing Piles."
+                app:layout_constraintStart_toStartOf="@+id/discardPilesTitle"
+                app:layout_constraintTop_toBottomOf="@+id/discardPilesTitle" />
+
+            <TextView
+                android:id="@+id/eventsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Events:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/discardPilesText"
+                app:layout_constraintTop_toBottomOf="@+id/discardPilesText" />
+
+            <TextView
+                android:id="@+id/eventsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Events are special situations that impact the game in unique ways. Every 3 turns, a card is drawn from the Events deck and its effect is resolved on the spot."
+                app:layout_constraintStart_toStartOf="@+id/eventsTitle"
+                app:layout_constraintTop_toBottomOf="@+id/eventsTitle" />
+
+            <TextView
+                android:id="@+id/actionsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Actions:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/eventsText"
+                app:layout_constraintTop_toBottomOf="@+id/eventsText" />
+
+            <TextView
+                android:id="@+id/actionsText1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Every turn, the Action Bar of the active player is filled. They can use their Action Points for one or more of the listed actions:"
+                app:layout_constraintStart_toStartOf="@+id/actionsTitle"
+                app:layout_constraintTop_toBottomOf="@+id/actionsTitle" />
+
+            <TextView
+                android:id="@+id/actionsText2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text=" • Moving: can be activated regardless of location. This action allows the active player to move their pawn on adjacent tiles, consuming one Action Point in the process. Multiple such movements may be repeated until the Action Bar is depleted. Other actions may not be performed in between movements, regardless of the number of available Action Points. Players may not move their pawns on Tiles that are already occupied by other pawns, except for the Royal Academy."
+                app:layout_constraintStart_toStartOf="@+id/objectivesText2"
+                app:layout_constraintTop_toBottomOf="@+id/actionsText1" />
+
+            <TextView
+                android:id="@+id/actionsText3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text=" • Fishing: can be activated when the active player's pawn is on the Tiles marked with 1, 2 or 3. This action consumes an entire Action Bar’s worth of Action Points, allowing the active player to draw a card from the Fishing Pile whose number corresponds to the Fishing Spot they are located on."
+                app:layout_constraintStart_toStartOf="@+id/actionsText2"
+                app:layout_constraintTop_toBottomOf="@+id/actionsText2" />
+
+            <TextView
+                android:id="@+id/actionsText4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text=" • Trading: can be activated when the active player’s pawn is on a Tile adjacent to another occupied Tile. This action allows the active player to trade one of the items from their Inventory with one of the items in the nearby player’s Inventory if both parties agree to do so, consuming one Action Point of the active player per item transaction."
+                app:layout_constraintStart_toStartOf="@+id/actionsText3"
+                app:layout_constraintTop_toBottomOf="@+id/actionsText3" />
+
+            <TextView
+                android:id="@+id/actionsText5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text=" • Selling: can be activated when the active player’s pawn is on the Royal Academy. This action allows the active player to exchange one of the items from their Inventory for Gold equal to the number displayed on the bottom right corner of the item’s card. The item will then be placed in the Discard Pile corresponding to the number with which the card is marked."
+                app:layout_constraintStart_toStartOf="@+id/actionsText4"
+                app:layout_constraintTop_toBottomOf="@+id/actionsText4" />
+
+            <TextView
+                android:id="@+id/actionsText6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text=" • Buying: can be activated when the active player’s pawn is on the Royal Academy. This action allows the active player to exchange Gold for items from the Store, whose cost is displayed in the bottom right corner of their respective cards."
+                app:layout_constraintStart_toStartOf="@+id/actionsText5"
+                app:layout_constraintTop_toBottomOf="@+id/actionsText5" />
+
+            <TextView
+                android:id="@+id/actionsText7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text=" • Delivering: can be activated when the active player’s pawn is on the Royal Academy. This action allows the active player to deposit the items indicated by the active Objective to help complete it."
+                app:layout_constraintStart_toStartOf="@+id/actionsText6"
+                app:layout_constraintTop_toBottomOf="@+id/actionsText6" />
+
+            <TextView
+                android:id="@+id/charactersTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Character Cards:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/actionsTitle"
+                app:layout_constraintTop_toBottomOf="@+id/actionsText7" />
+
+            <TextView
+                android:id="@+id/charactersText1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Character Cards are special cards that offer each player a unique ability and define their playstyle for the entirety of a game’s length. The playable characters consist of:"
+                app:layout_constraintStart_toStartOf="@+id/charactersTitle"
+                app:layout_constraintTop_toBottomOf="@+id/charactersTitle" />
+
+            <TextView
+                android:id="@+id/charactersText2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text=" • The Old Fisherman: while Fishing you draw 2 cards from the Fishing Pile, choosing one of them to keep and putting the other on the bottom of that Fishing Pile."
+                app:layout_constraintStart_toStartOf="@+id/actionsText7"
+                app:layout_constraintTop_toBottomOf="@+id/charactersText1" />
+
+            <TextView
+                android:id="@+id/charactersText3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text=" • The Cursed Twins: instead of having only one Action Bar, you instead have 2, but shortened to only one Action Point."
+                app:layout_constraintStart_toStartOf="@+id/charactersText2"
+                app:layout_constraintTop_toBottomOf="@+id/charactersText2" />
+
+            <TextView
+                android:id="@+id/charactersText4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text=" • The Hunter: allows the use of equipment in Fishing Spots of +1 higher level compared to the original limit."
+                app:layout_constraintStart_toStartOf="@+id/charactersText3"
+                app:layout_constraintTop_toBottomOf="@+id/charactersText3" />
+
+            <TextView
+                android:id="@+id/charactersText5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text=" • The Businessman: gains +2 Gold for every item sold to the Store. Can sell debris for 2 Gold"
+                app:layout_constraintStart_toStartOf="@+id/charactersText4"
+                app:layout_constraintTop_toBottomOf="@+id/charactersText4" />
+
+            <TextView
+                android:id="@+id/charactersText6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text=" • The Royal Pawn: Inventory space for regular items is halved, but the Action Bar has a maximum of 5 Action Points."
+                app:layout_constraintStart_toStartOf="@+id/charactersText5"
+                app:layout_constraintTop_toBottomOf="@+id/charactersText5" />
+
+            <TextView
+                android:id="@+id/charactersText7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text=" • Lady Marina: at the beginning of your turn, you may choose to skip it to give a player (including yourself) an extra turn after their next one. This ability can only be activated once per active Objective."
+                app:layout_constraintStart_toStartOf="@+id/charactersText6"
+                app:layout_constraintTop_toBottomOf="@+id/charactersText6" />
+
+            <TextView
+                android:id="@+id/charactersText8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text=" * Clarifications:"
+                app:layout_constraintStart_toStartOf="@+id/charactersText1"
+                app:layout_constraintTop_toBottomOf="@+id/charactersText7" />
+
+            <TextView
+                android:id="@+id/charactersText9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="--> When using the Holy Fishing Hook, the Old Fisherman gets to draw 6 cards from the Fishing Pile instead of 4."
+                app:layout_constraintStart_toStartOf="@+id/charactersText7"
+                app:layout_constraintTop_toBottomOf="@+id/charactersText8" />
+
+            <TextView
+                android:id="@+id/charactersText10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="--> Due to the Cursed Twins’ two Action Bars, bonuses such as extra turns or equipment benefits are doubled (added onto both Action Bars and their respective actions)."
+                app:layout_constraintStart_toStartOf="@+id/charactersText9"
+                app:layout_constraintTop_toBottomOf="@+id/charactersText9" />
+
+            <TextView
+                android:id="@+id/setupTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Setup:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/charactersTitle"
+                app:layout_constraintTop_toBottomOf="@+id/charactersText10" />
+
+            <TextView
+                android:id="@+id/setupText1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="1. Every player randomly chooses a card from the 6 Character Cards and picks a pawn of their choosing. All pawns are placed on the Royal Academy tile."
+                app:layout_constraintStart_toStartOf="@+id/setupTitle"
+                app:layout_constraintTop_toBottomOf="@+id/setupTitle" />
+
+            <TextView
+                android:id="@+id/setupText2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="2. The cards marked with 1, 2 and 3 are placed in their own Fishing Piles. "
+                app:layout_constraintStart_toStartOf="@+id/setupText1"
+                app:layout_constraintTop_toBottomOf="@+id/setupText1" />
+
+            <TextView
+                android:id="@+id/setupText3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="3. The Store’s purchasable items are each displayed individually."
+                app:layout_constraintStart_toStartOf="@+id/setupText2"
+                app:layout_constraintTop_toBottomOf="@+id/setupText2" />
+
+            <TextView
+                android:id="@+id/setupText4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="4. 3 random Objectives of 3 separate difficulties are chosen and displayed in ascending order of difficulty."
+                app:layout_constraintStart_toStartOf="@+id/setupText3"
+                app:layout_constraintTop_toBottomOf="@+id/setupText3" />
+
+            <TextView
+                android:id="@+id/setupText5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="5. The starting player is chosen through a method of the players’ choosing."
+                app:layout_constraintStart_toStartOf="@+id/setupText4"
+                app:layout_constraintTop_toBottomOf="@+id/setupText4" />
+
+            <TextView
+                android:id="@+id/gameplayTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Gameplay:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/setupText5"
+                app:layout_constraintTop_toBottomOf="@+id/setupText5" />
+
+            <TextView
+                android:id="@+id/gameplayText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Each turn, the active player takes actions until their Action Bar is depleted, after which the next player in clockwise order takes their actions. This process is repeated until the players run out of their given turns for the active Objective or they succeed in Delivering everything for all 3 Objectives and win the game."
+                app:layout_constraintStart_toStartOf="@+id/gameplayTitle"
+                app:layout_constraintTop_toBottomOf="@+id/gameplayTitle" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
