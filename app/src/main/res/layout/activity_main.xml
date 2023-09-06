@@ -33,13 +33,13 @@
         app:layout_constraintTop_toBottomOf="@+id/appTitle" />
 
     <HorizontalScrollView
-        android:layout_width="421dp"
-        android:layout_height="213dp"
-        android:layout_marginTop="236dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="235dp"
         android:fillViewport="true"
-        >
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -167,7 +167,7 @@
                 android:text="complete"
                 android:textColor="@color/button_text_color"
                 android:textSize="12sp"
-                android:visibility="invisible"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="@+id/objective2Count3"
                 app:layout_constraintTop_toBottomOf="@+id/objective2Fish3" />
 
@@ -181,7 +181,7 @@
                 android:text="complete"
                 android:textColor="@color/button_text_color"
                 android:textSize="12sp"
-                android:visibility="invisible"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="@+id/objective3Count3"
                 app:layout_constraintTop_toBottomOf="@+id/objective3Fish3" />
 
@@ -193,7 +193,7 @@
                 android:layout_marginTop="15dp"
                 android:text="Objectives 2:"
                 android:textSize="12sp"
-                android:visibility="invisible"
+                android:visibility="gone"
                 app:layout_constraintStart_toEndOf="@+id/objective1Text"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -206,7 +206,7 @@
                 android:layout_marginEnd="40dp"
                 android:text="Objectives 3:"
                 android:textSize="12sp"
-                android:visibility="invisible"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/objective2Text"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -220,7 +220,7 @@
                 android:text="☆Cod"
                 android:textColor="#000000"
                 android:textSize="14sp"
-                android:visibility="invisible"
+                android:visibility="gone"
                 app:layout_constraintEnd_toStartOf="@+id/objective2Count1"
                 app:layout_constraintTop_toBottomOf="@+id/objective2Text" />
 
@@ -232,7 +232,7 @@
                 android:text="☆☆Jellyfish"
                 android:textColor="#000000"
                 android:textSize="14sp"
-                android:visibility="invisible"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@+id/objective1Count2"
                 app:layout_constraintEnd_toStartOf="@+id/objective2Count2"
                 app:layout_constraintTop_toTopOf="@+id/objective1Count2" />
@@ -245,7 +245,7 @@
                 android:text="☆☆☆Shark"
                 android:textColor="#000000"
                 android:textSize="14sp"
-                android:visibility="invisible"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@+id/objective1Count3"
                 app:layout_constraintEnd_toStartOf="@+id/objective2Count3"
                 app:layout_constraintTop_toTopOf="@+id/objective1Count3" />
@@ -257,7 +257,7 @@
                 android:text="2"
                 android:textColor="#000000"
                 android:textSize="14sp"
-                android:visibility="invisible"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@+id/objective2Fish1"
                 app:layout_constraintEnd_toEndOf="@+id/objective2Text"
                 app:layout_constraintTop_toTopOf="@+id/objective2Fish1" />
@@ -269,7 +269,7 @@
                 android:text="2"
                 android:textColor="#000000"
                 android:textSize="14sp"
-                android:visibility="invisible"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@+id/objective2Fish2"
                 app:layout_constraintEnd_toEndOf="@+id/objective2Count1"
                 app:layout_constraintTop_toTopOf="@+id/objective2Fish2"
@@ -282,7 +282,7 @@
                 android:text="1"
                 android:textColor="#000000"
                 android:textSize="14sp"
-                android:visibility="invisible"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@+id/objective2Fish3"
                 app:layout_constraintEnd_toEndOf="@+id/objective2Count2"
                 app:layout_constraintTop_toTopOf="@+id/objective2Fish3" />
@@ -296,7 +296,7 @@
                 android:text="☆Cod"
                 android:textColor="#000000"
                 android:textSize="14sp"
-                android:visibility="invisible"
+                android:visibility="gone"
                 app:layout_constraintEnd_toStartOf="@+id/objective3Count1"
                 app:layout_constraintTop_toBottomOf="@+id/objective3Text" />
 
@@ -308,7 +308,7 @@
                 android:text="☆☆☆Shark"
                 android:textColor="#000000"
                 android:textSize="14sp"
-                android:visibility="invisible"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@+id/objective1Count3"
                 app:layout_constraintEnd_toStartOf="@+id/objective3Count3"
                 app:layout_constraintTop_toTopOf="@+id/objective1Count3"
@@ -321,7 +321,7 @@
                 android:text="2"
                 android:textColor="#000000"
                 android:textSize="14sp"
-                android:visibility="invisible"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@+id/objective2Fish1"
                 app:layout_constraintEnd_toEndOf="@+id/objective3Text"
                 app:layout_constraintTop_toTopOf="@+id/objective2Fish1"
@@ -334,7 +334,7 @@
                 android:text="2"
                 android:textColor="#000000"
                 android:textSize="14sp"
-                android:visibility="invisible"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@+id/objective2Fish2"
                 app:layout_constraintEnd_toEndOf="@+id/objective3Count1"
                 app:layout_constraintTop_toTopOf="@+id/objective2Fish2"
@@ -347,7 +347,7 @@
                 android:text="1"
                 android:textColor="#000000"
                 android:textSize="14sp"
-                android:visibility="invisible"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@+id/objective2Fish3"
                 app:layout_constraintEnd_toEndOf="@+id/objective3Count2"
                 app:layout_constraintTop_toTopOf="@+id/objective2Fish3"
@@ -361,7 +361,7 @@
                 android:text="☆☆Jellyfish"
                 android:textColor="#000000"
                 android:textSize="14sp"
-                android:visibility="invisible"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@+id/objective1Count2"
                 app:layout_constraintEnd_toStartOf="@+id/objective3Count2"
                 app:layout_constraintTop_toTopOf="@+id/objective1Count2"
@@ -375,7 +375,7 @@
         android:layout_width="145dp"
         android:layout_height="23dp"
         android:layout_marginStart="16dp"
-        android:max="3"
+        android:max="2"
         app:layout_constraintBottom_toBottomOf="@+id/difficulty"
         app:layout_constraintStart_toEndOf="@+id/difficulty"
         app:layout_constraintTop_toTopOf="@+id/difficulty"
@@ -386,7 +386,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
-        android:layout_marginTop="324dp"
+        android:layout_marginTop="300dp"
         android:layout_marginEnd="16dp"
         android:text="Difficulty:"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -410,6 +410,20 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/difficultySeekBar" />
+
+    <Button
+        android:id="@+id/rulesButton"
+        android:layout_width="67dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:onClick="openRules"
+        android:text="Rules"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:backgroundTint="#abf095"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
