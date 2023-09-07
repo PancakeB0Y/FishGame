@@ -7,11 +7,12 @@ import android.view.View
 import android.widget.Button
 import android.widget.SeekBar
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import kotlin.random.Random
 
 class MainActivity : ComponentActivity() {
-    //Create variables for every element of the app
+    //Create variables for every needed element of the app
     private lateinit var objective1Fish1: TextView
     private lateinit var objective1Fish2: TextView
     private lateinit var objective1Fish3: TextView
@@ -290,8 +291,7 @@ class MainActivity : ComponentActivity() {
 
     //Open the events page
     fun openEvents(view: View) {
-        val intent = Intent(this@MainActivity, Events::class.java)
-        Log.i("events", "press events button")
+        val intent = Intent(this@MainActivity, Events::class.java, )
         startActivity(intent)
     }
 }

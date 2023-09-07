@@ -11,9 +11,11 @@
         android:id="@+id/eventsTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:text="Events"
         android:textAppearance="@style/TextAppearance.AppCompat.Display3"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,4 +31,208 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="460dp"
+        android:layout_marginTop="20dp"
+        android:fillViewport="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eventsTitle">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="10dp"
+            tools:context=".Rules">
+
+            <TextView
+                android:id="@+id/noEventsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:text="No events have been generated"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/eventTitle1"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="The Blessing of the Fish God:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/eventText1"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Every player gets a single-use holy fishhook"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@+id/eventTitle1"
+                app:layout_constraintTop_toBottomOf="@+id/eventTitle1" />
+
+            <TextView
+                android:id="@+id/eventTitle2"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="The Blessing of the Fish God:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@id/eventText1"
+                app:layout_constraintTop_toBottomOf="@id/eventText1" />
+
+            <TextView
+                android:id="@+id/eventText2"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Every player gets a single-use holy fishhook"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@+id/eventTitle2"
+                app:layout_constraintTop_toBottomOf="@+id/eventTitle2" />
+
+            <TextView
+                android:id="@+id/eventTitle3"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="The Blessing of the Fish God:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@id/eventText2"
+                app:layout_constraintTop_toBottomOf="@id/eventText2" />
+
+            <TextView
+                android:id="@+id/eventText3"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Every player gets a single-use holy fishhook"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@+id/eventTitle3"
+                app:layout_constraintTop_toBottomOf="@+id/eventTitle3" />
+
+            <TextView
+                android:id="@+id/eventTitle4"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="The Blessing of the Fish God:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@id/eventText3"
+                app:layout_constraintTop_toBottomOf="@id/eventText3" />
+
+            <TextView
+                android:id="@+id/eventText4"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Every player gets a single-use holy fishhook"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@+id/eventTitle4"
+                app:layout_constraintTop_toBottomOf="@+id/eventTitle4" />
+
+            <TextView
+                android:id="@+id/eventTitle5"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="The Blessing of the Fish God:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@id/eventText4"
+                app:layout_constraintTop_toBottomOf="@id/eventText4" />
+
+            <TextView
+                android:id="@+id/eventText5"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Every player gets a single-use holy fishhook"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@+id/eventTitle5"
+                app:layout_constraintTop_toBottomOf="@+id/eventTitle5" />
+
+            <TextView
+                android:id="@+id/eventTitle6"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="The Blessing of the Fish God:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@id/eventText5"
+                app:layout_constraintTop_toBottomOf="@id/eventText5" />
+
+            <TextView
+                android:id="@+id/eventText6"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Every player gets a single-use holy fishhook"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@+id/eventTitle6"
+                app:layout_constraintTop_toBottomOf="@+id/eventTitle6" />
+
+            <TextView
+                android:id="@+id/eventTitle7"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="The Blessing of the Fish God:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@id/eventText6"
+                app:layout_constraintTop_toBottomOf="@id/eventText6" />
+
+            <TextView
+                android:id="@+id/eventText7"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Every player gets a single-use holy fishhook"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@+id/eventTitle7"
+                app:layout_constraintTop_toBottomOf="@+id/eventTitle7" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/generateEventButton"
+        android:layout_width="183dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="112dp"
+        android:layout_marginBottom="40dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#ADE5FF"
+        android:text="Generate Event"
+        android:textColor="#03495A"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

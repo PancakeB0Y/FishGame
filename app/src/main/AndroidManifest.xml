@@ -13,6 +13,9 @@
         android:theme="@style/Theme.FishGame"
         tools:targetApi="31">
         <activity
+            android:name=".events2"
+            android:exported="false" />
+        <activity
             android:name=".Rules"
             android:exported="false" />
         <activity
