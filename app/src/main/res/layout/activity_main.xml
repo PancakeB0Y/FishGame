@@ -7,31 +7,17 @@
     android:background="#FFFFFF"
     >
 
-    <TextView
-        android:id="@+id/appTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:text="Fish Game"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#2F548C"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="0dp"
-        android:layout_height="95dp"
-        android:layout_marginTop="1dp"
+        android:layout_width="314dp"
+        android:layout_height="109dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="100dp"
         android:contentDescription="Shark Picture"
-        android:rotation="-35"
-        android:src="@drawable/fish_game_shark"
-        app:layout_constraintEnd_toEndOf="@+id/appTitle"
-        app:layout_constraintStart_toStartOf="@+id/appTitle"
-        app:layout_constraintTop_toBottomOf="@+id/appTitle" />
+        android:rotation="0"
+        android:src="@drawable/ichthus_logo_b"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView"

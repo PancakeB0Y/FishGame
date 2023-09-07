@@ -1,14 +1,16 @@
 package com.example.fishgame
 
-import android.content.Intent
+import android.app.Activity
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
-import androidx.activity.ComponentActivity
 
-class Events : ComponentActivity() {
+class Events : Activity() {
     private lateinit var generateEventButton: Button
+    private lateinit var closeEventsButton: Button
 
     //Create a class for the events and add all of them into an arraylist
     class event(var title: String, var text: String) {}
@@ -57,61 +59,69 @@ class Events : ComponentActivity() {
 
     private lateinit var noEventsText: TextView
     private var eventCounter = 0;
+    private var eventsShuffled = false
+
+    private lateinit var sharedPrefs: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_events)
 
-            //Initialize the titles of every event
-            eventTitle1 = findViewById(R.id.eventTitle1)
-            eventTitle2 = findViewById(R.id.eventTitle2)
-            eventTitle3 = findViewById(R.id.eventTitle3)
-            eventTitle4 = findViewById(R.id.eventTitle4)
-            eventTitle5 = findViewById(R.id.eventTitle5)
-            eventTitle6 = findViewById(R.id.eventTitle6)
-            eventTitle7 = findViewById(R.id.eventTitle7)
+        //Initialize the titles of every event
+        eventTitle1 = findViewById(R.id.eventTitle1)
+        eventTitle2 = findViewById(R.id.eventTitle2)
+        eventTitle3 = findViewById(R.id.eventTitle3)
+        eventTitle4 = findViewById(R.id.eventTitle4)
+        eventTitle5 = findViewById(R.id.eventTitle5)
+        eventTitle6 = findViewById(R.id.eventTitle6)
+        eventTitle7 = findViewById(R.id.eventTitle7)
 
-            //Add all of the event titles to their respective list
-            allEventTitles = arrayListOf<TextView>(
-                eventTitle1,
-                eventTitle2,
-                eventTitle3,
-                eventTitle4,
-                eventTitle5,
-                eventTitle6,
-                eventTitle7
-            )
+        //Add all of the event titles to their respective list
+        allEventTitles = arrayListOf<TextView>(
+            eventTitle1,
+            eventTitle2,
+            eventTitle3,
+            eventTitle4,
+            eventTitle5,
+            eventTitle6,
+            eventTitle7
+        )
 
-            //Initialize the text of every event
-            eventText1 = findViewById(R.id.eventText1)
-            eventText2 = findViewById(R.id.eventText2)
-            eventText3 = findViewById(R.id.eventText3)
-            eventText4 = findViewById(R.id.eventText4)
-            eventText5 = findViewById(R.id.eventText5)
-            eventText6 = findViewById(R.id.eventText6)
-            eventText7 = findViewById(R.id.eventText7)
+        //Initialize the text of every event
+        eventText1 = findViewById(R.id.eventText1)
+        eventText2 = findViewById(R.id.eventText2)
+        eventText3 = findViewById(R.id.eventText3)
+        eventText4 = findViewById(R.id.eventText4)
+        eventText5 = findViewById(R.id.eventText5)
+        eventText6 = findViewById(R.id.eventText6)
+        eventText7 = findViewById(R.id.eventText7)
 
-            //Add all of the event text to their respective list
-            allEventText = arrayListOf<TextView>(
-                eventText1,
-                eventText2,
-                eventText3,
-                eventText4,
-                eventText5,
-                eventText6,
-                eventText7
-            )
+        //Add all of the event text to their respective list
+        allEventText = arrayListOf<TextView>(
+            eventText1,
+            eventText2,
+            eventText3,
+            eventText4,
+            eventText5,
+            eventText6,
+            eventText7
+        )
 
-            noEventsText = findViewById(R.id.noEventsText)
+        noEventsText = findViewById(R.id.noEventsText)
 
+        sharedPrefs = getSharedPreferences("EventsPrefs", Context.MODE_PRIVATE)
+
+        if(!eventsShuffled){
             allEvents.shuffle()
+            eventsShuffled = true
+        }
 
-            //Initialise the generate events button
-            generateEventButton = findViewById(R.id.generateEventButton)
+        //Initialise the generate events button
+        generateEventButton = findViewById(R.id.generateEventButton)
 
-            generateEventButton.setOnClickListener {
-                generateEvent()
-            }
+        generateEventButton.setOnClickListener {
+            generateEvent()
+        }
 
     }
 
