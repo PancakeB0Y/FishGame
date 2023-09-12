@@ -51,6 +51,7 @@ class MainActivity : ComponentActivity() {
 
     private lateinit var difficultySeekBar: SeekBar
 
+    //Create a list with every fish
     private var allFish = arrayListOf(
         "☆Cod",
         "☆Salmon",
@@ -86,19 +87,45 @@ class MainActivity : ComponentActivity() {
         "☆☆☆Sturgeon"
     )
 
+    //Initialize eventData.txt
     private val FILE_NAME = GlobalClass.FILE_NAME
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //Initialize the first objective fish
+        //Initialize every needed element of the app
         objective1Fish1 = findViewById(R.id.objective1Fish1)
         objective1Fish2 = findViewById(R.id.objective1Fish2)
         objective1Fish3 = findViewById(R.id.objective1Fish3)
         objective1Count1 = findViewById(R.id.objective1Count1)
         objective1Count2 = findViewById(R.id.objective1Count2)
         objective1Count3 = findViewById(R.id.objective1Count3)
+
+        objective2Fish1 = findViewById(R.id.objective2Fish1)
+        objective2Fish2 = findViewById(R.id.objective2Fish2)
+        objective2Fish3 = findViewById(R.id.objective2Fish3)
+        objective2Count1 = findViewById(R.id.objective2Count1)
+        objective2Count2 = findViewById(R.id.objective2Count2)
+        objective2Count3 = findViewById(R.id.objective2Count3)
+
+        objective3Fish1 = findViewById(R.id.objective3Fish1)
+        objective3Fish2 = findViewById(R.id.objective3Fish2)
+        objective3Fish3 = findViewById(R.id.objective3Fish3)
+        objective3Count1 = findViewById(R.id.objective3Count1)
+        objective3Count2 = findViewById(R.id.objective3Count2)
+        objective3Count3 = findViewById(R.id.objective3Count3)
+
+        objective2Text = findViewById(R.id.objective2Text)
+        objective3Text = findViewById(R.id.objective3Text)
+
+        button1 = findViewById(R.id.button1)
+        button2 = findViewById(R.id.button2)
+        button3 = findViewById(R.id.button3)
+
+        rulesButton = findViewById(R.id.rulesButton)
+
+        difficultySeekBar = findViewById(R.id.difficultySeekBar)
 
         //Randomize the first objective fish
         //Objective 1 -  (2☆ and 1☆☆) or (3☆)
@@ -116,14 +143,6 @@ class MainActivity : ComponentActivity() {
             objective1Count3.text = "2"
         }
 
-        //Initialize the second objective fish
-        objective2Fish1 = findViewById(R.id.objective2Fish1)
-        objective2Fish2 = findViewById(R.id.objective2Fish2)
-        objective2Fish3 = findViewById(R.id.objective2Fish3)
-        objective2Count1 = findViewById(R.id.objective2Count1)
-        objective2Count2 = findViewById(R.id.objective2Count2)
-        objective2Count3 = findViewById(R.id.objective2Count3)
-
         //Randomize the second objective fish
         //Objective 2 - (1☆ and 2☆☆) or (3☆☆)
         tier2Fish.shuffle()
@@ -139,14 +158,6 @@ class MainActivity : ComponentActivity() {
             objective2Fish1.text = tier2Fish[2]
             objective2Count1.text = "1"
         }
-
-        //Initialize the third objective fish
-        objective3Fish1 = findViewById(R.id.objective3Fish1)
-        objective3Fish2 = findViewById(R.id.objective3Fish2)
-        objective3Fish3 = findViewById(R.id.objective3Fish3)
-        objective3Count1 = findViewById(R.id.objective3Count1)
-        objective3Count2 = findViewById(R.id.objective3Count2)
-        objective3Count3 = findViewById(R.id.objective3Count3)
 
         //Randomize the third objective fish
         //Objective 3 - (1☆, 1☆☆ and 1☆☆☆) or (2☆☆ and 1☆☆☆) or (1☆☆ and 2☆☆☆)
@@ -170,20 +181,6 @@ class MainActivity : ComponentActivity() {
             objective3Fish2.text = tier3Fish[1]
             objective3Count1.text = "1"
         }
-
-        //Initialize objectives text
-        objective2Text = findViewById(R.id.objective2Text)
-        objective3Text = findViewById(R.id.objective3Text)
-
-        //Initialize buttons
-        button1 = findViewById(R.id.button1)
-        button2 = findViewById(R.id.button2)
-        button3 = findViewById(R.id.button3)
-
-        rulesButton = findViewById(R.id.rulesButton)
-
-        //Initialize the difficulty seek bar
-        difficultySeekBar = findViewById(R.id.difficultySeekBar)
 
         //Change the fish count required when sliding the seek bar
         difficultySeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
@@ -249,6 +246,7 @@ class MainActivity : ComponentActivity() {
             button3.isSelected = true
             complete3()
         }
+
         saveData()
     }
 
@@ -288,18 +286,19 @@ class MainActivity : ComponentActivity() {
         recreate()
     }
 
-    //Open the rules page
+    //Open the rules tab
     fun openRules(view: View) {
         val intent = Intent(this@MainActivity, Rules::class.java)
         startActivity(intent)
     }
 
-    //Open the events page
+    //Open the events tab
     fun openEvents(view: View) {
         val intent = Intent(this@MainActivity, Events::class.java)
         startActivity(intent)
     }
 
+    //Save the initial data needed for the events in eventsData.txt
     private fun saveData() {
         var openOnce = false
         var eventCount = "0"

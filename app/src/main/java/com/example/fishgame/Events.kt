@@ -26,6 +26,7 @@ class Events : Activity() {
     //Create a class for the events and add all of them into an arraylist
     class Event(var title: String, var text: String) {}
 
+    //Create each event and add them to a list
     private var event1 = Event("Blessing of the Goldfish", "Every player gains 10 Gold")
     private var event2 = Event(
         "Market Crash",
@@ -67,19 +68,20 @@ class Events : Activity() {
     private lateinit var eventText6: TextView
     private lateinit var eventText7: TextView
 
-    //Create and arraylist for all the event titles and for all of the event text
+    private lateinit var noEventsText: TextView
+
+    //Create an arraylist for all event titles and for all event text
     private var allEventTitles = arrayListOf<TextView>()
     private var allEventText = arrayListOf<TextView>()
 
-    private lateinit var noEventsText: TextView
-
+    //Initialize eventData.txt
     private val FILE_NAME = GlobalClass.FILE_NAME
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_events)
 
-        //Initialize the titles of every event
+        //Initialize every needed element of the app
         eventTitle1 = findViewById(R.id.eventTitle1)
         eventTitle2 = findViewById(R.id.eventTitle2)
         eventTitle3 = findViewById(R.id.eventTitle3)
@@ -87,6 +89,18 @@ class Events : Activity() {
         eventTitle5 = findViewById(R.id.eventTitle5)
         eventTitle6 = findViewById(R.id.eventTitle6)
         eventTitle7 = findViewById(R.id.eventTitle7)
+
+        eventText1 = findViewById(R.id.eventText1)
+        eventText2 = findViewById(R.id.eventText2)
+        eventText3 = findViewById(R.id.eventText3)
+        eventText4 = findViewById(R.id.eventText4)
+        eventText5 = findViewById(R.id.eventText5)
+        eventText6 = findViewById(R.id.eventText6)
+        eventText7 = findViewById(R.id.eventText7)
+
+        noEventsText = findViewById(R.id.noEventsText)
+
+        generateEventButton = findViewById(R.id.generateEventButton)
 
         //Add all of the event titles to their respective list
         allEventTitles = arrayListOf<TextView>(
@@ -99,15 +113,6 @@ class Events : Activity() {
             eventTitle7
         )
 
-        //Initialize the text of every event
-        eventText1 = findViewById(R.id.eventText1)
-        eventText2 = findViewById(R.id.eventText2)
-        eventText3 = findViewById(R.id.eventText3)
-        eventText4 = findViewById(R.id.eventText4)
-        eventText5 = findViewById(R.id.eventText5)
-        eventText6 = findViewById(R.id.eventText6)
-        eventText7 = findViewById(R.id.eventText7)
-
         //Add all of the event text to their respective list
         allEventText = arrayListOf<TextView>(
             eventText1,
@@ -119,10 +124,10 @@ class Events : Activity() {
             eventText7
         )
 
-        noEventsText = findViewById(R.id.noEventsText)
-
+        //Check if the events that has been opened from eventsData.txt
         var openOnce = readFromFile()?.get(0).toBoolean()
         if (!openOnce) {
+            //If it has not been opened -> randomize order of the events and add that order to eventsData.txt
             var randomEventOrderList = arrayListOf<Char>(
                 '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
             )
@@ -131,6 +136,7 @@ class Events : Activity() {
                 "" + randomEventOrderList[0] + randomEventOrderList[1] + randomEventOrderList[2] + randomEventOrderList[3] + randomEventOrderList[4] + randomEventOrderList[5] + randomEventOrderList[6] + randomEventOrderList[7] + randomEventOrderList[8] + randomEventOrderList[9]
             saveData(true, 0, randomEventOrderString)
         } else {
+            //If it has been opened -> make all previously generated events visible
             var eventCounter = readFromFile()?.get(1)?.toInt()
             if (eventCounter != null) {
                 var eventOrderInts = getShuffledEventOrder()
@@ -158,15 +164,13 @@ class Events : Activity() {
             }
         }
 
-        //Initialise the generate events button
-        generateEventButton = findViewById(R.id.generateEventButton)
-
+        //Add a listener for the generateEventButton
         generateEventButton.setOnClickListener {
             generateEvent()
         }
     }
 
-    //When the button is pressed randomly choose an event and make it visible
+    //On button press -> make the next event from the randomized order visible
     private fun generateEvent() {
         var eventCounter = readFromFile()?.get(1)?.toInt()
         if (eventCounter != null) {
@@ -188,32 +192,38 @@ class Events : Activity() {
         }
     }
 
+    //Exit the events tab
     fun closeEvents(view: View) {
         finish()
     }
 
-    private fun saveData(isOpen: Boolean, eventCount: Int, eventOrder: String) {
-        var openOnce = isOpen
-        var eventCountData = eventCount.toString()
-        var eventOrder = eventOrder
+    //Save the given data to eventsData.txt
+    //openOnce = true when the events tab is opened for the first time
+    //eventCount -> the number of generated events
+    //eventOrder -> the random order in which the events are generated
+    private fun saveData(openOnce: Boolean, eventCount: Int, eventOrder: String) {
+        val openOnce = openOnce
+        val eventCount = eventCount.toString()
+        val eventOrder = eventOrder
 
         try {
             var outputStreamWriter =
                 OutputStreamWriter(openFileOutput(FILE_NAME, MODE_PRIVATE))
             outputStreamWriter.write(openOnce.toString())
             outputStreamWriter.write("\n")
-            outputStreamWriter.write(eventCountData)
+            outputStreamWriter.write(eventCount)
             outputStreamWriter.write("\n")
             outputStreamWriter.write(eventOrder)
             outputStreamWriter.close()
             Log.i("text", "openOnce: " + openOnce)
-            Log.i("text", "eventCounter: " + eventCountData)
+            Log.i("text", "eventCounter: " + eventCount)
             Log.i("text", "eventOrder: " + eventOrder)
         } catch (e: IOException) {
             Log.e("Exception", "File write failed: " + e.toString());
         }
     }
 
+    //Return the data from eventsData.txt
     private fun readFromFile(): Array<String>? {
         var text = arrayOf<String>()
         try {
@@ -242,6 +252,7 @@ class Events : Activity() {
         return text
     }
 
+    //Return the order of events in integers
     private fun getShuffledEventOrder(): ArrayList<Int> {
         var eventOrderChars = readFromFile()?.get(2)?.toCharArray()
         var eventOrderInts = arrayListOf<Int>()
