@@ -9,6 +9,13 @@ import android.widget.SeekBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
+import java.io.BufferedReader
+import java.io.FileNotFoundException
+import java.io.IOException
+import java.io.InputStream
+import java.io.InputStreamReader
+import java.io.OutputStreamWriter
+import java.util.Collections
 import kotlin.random.Random
 
 class MainActivity : ComponentActivity() {
@@ -79,10 +86,7 @@ class MainActivity : ComponentActivity() {
         "☆☆☆Sturgeon"
     )
 
-    //Create arraylists with random counts for each fish
-    private var tier1Count = List(20) { Random.nextInt(2, 4) }
-    private var tier2Count = List(20) { Random.nextInt(2, 4) }
-    private var tier3Count = List(20) { Random.nextInt(2, 3) }
+    private val FILE_NAME = GlobalClass.FILE_NAME
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -245,6 +249,7 @@ class MainActivity : ComponentActivity() {
             button3.isSelected = true
             complete3()
         }
+        saveData()
     }
 
     //Change the text on the button and make the next objective visible
@@ -291,7 +296,26 @@ class MainActivity : ComponentActivity() {
 
     //Open the events page
     fun openEvents(view: View) {
-        val intent = Intent(this@MainActivity, Events::class.java, )
+        val intent = Intent(this@MainActivity, Events::class.java)
         startActivity(intent)
+    }
+
+    private fun saveData() {
+        var openOnce = false
+        var eventCount = "0"
+        var eventOrder = "0123456789"
+
+        try {
+            var outputStreamWriter =
+                OutputStreamWriter(openFileOutput(FILE_NAME, MODE_PRIVATE))
+            outputStreamWriter.write(openOnce.toString())
+            outputStreamWriter.write("\n")
+            outputStreamWriter.write(eventCount)
+            outputStreamWriter.write("\n")
+            outputStreamWriter.write(eventOrder)
+            outputStreamWriter.close()
+        } catch (e: IOException) {
+            Log.e("Exception", "File write failed: " + e.toString());
+        }
     }
 }

@@ -225,14 +225,15 @@
         android:id="@+id/generateEventButton"
         android:layout_width="183dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="112dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="30dp"
         android:background="#FFFFFF"
         android:backgroundTint="#ADE5FF"
         android:text="Generate Event"
         android:textColor="#03495A"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView1" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
