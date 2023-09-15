@@ -127,59 +127,73 @@ class MainActivity : ComponentActivity() {
 
         difficultySeekBar = findViewById(R.id.difficultySeekBar)
 
+        var tier3Count = 0;
+        tier3Fish.shuffle()
+
         //Randomize the first objective fish
-        //Objective 1 -  (2☆ and 1☆☆) or (3☆)
+        //Objective 1 -  (1☆ and 2☆☆) or (1☆, 1☆☆, 1☆☆☆)
         tier1Fish.shuffle()
         objective1Fish1.text = tier1Fish[0]
-        objective1Fish2.text = tier1Fish[1]
         objective1Count1.text = "2"
-        objective1Count2.text = "2"
+
+        tier2Fish.shuffle()
+        objective1Fish2.text = tier2Fish[1]
+        objective1Count2.text = "1"
         if (Math.random() > 0.5) {
-            tier2Fish.shuffle()
             objective1Fish3.text = tier2Fish[0]
             objective1Count3.text = "1"
         } else {
-            objective1Fish3.text = tier1Fish[2]
-            objective1Count3.text = "2"
+            objective1Fish3.text = tier3Fish[tier3Count]
+            objective1Count3.text = "1"
+            tier3Count++
         }
 
         //Randomize the second objective fish
-        //Objective 2 - (1☆ and 2☆☆) or (3☆☆)
-        tier2Fish.shuffle()
-        objective2Fish2.text = tier2Fish[0]
-        objective2Fish3.text = tier2Fish[1]
-        objective2Count2.text = "1"
+        //Objective 2 - (1☆, 1☆☆ and 1☆☆☆), (2☆ and 1☆☆☆)
+        tier1Fish.shuffle()
+        objective2Fish1.text = tier1Fish[0]
+        objective2Count1.text = "2"
+
+        objective2Fish3.text = tier3Fish[tier3Count]
         objective2Count3.text = "1"
+        tier3Count++
         if (Math.random() > 0.5) {
-            tier1Fish.shuffle()
-            objective2Fish1.text = tier1Fish[0]
-            objective2Count1.text = "2"
+            objective2Fish2.text = tier1Fish[1]
+            objective2Count2.text = "2"
         } else {
-            objective2Fish1.text = tier2Fish[2]
-            objective2Count1.text = "1"
+            tier2Fish.shuffle()
+            objective2Fish2.text = tier2Fish[0]
+            objective2Count2.text = "2"
         }
 
         //Randomize the third objective fish
-        //Objective 3 - (1☆, 1☆☆ and 1☆☆☆) or (2☆☆ and 1☆☆☆) or (1☆☆ and 2☆☆☆)
-        tier2Fish.shuffle()
-        tier3Fish.shuffle()
-        objective3Fish3.text = tier3Fish[0]
-        objective3Count2.text = "1"
+        //Objective 3 - (1☆, 1☆☆ and 1☆☆☆) or (1☆☆ and 2☆☆☆)
+        objective3Fish3.text = tier3Fish[tier3Count]
         objective3Count3.text = "1"
+        tier3Count++
         val randNumber = Random.nextInt(0, 3)
         if (randNumber == 0) {
             tier1Fish.shuffle()
             objective3Fish1.text = tier1Fish[0]
-            objective3Fish2.text = tier2Fish[0]
             objective3Count1.text = "2"
+            tier2Fish.shuffle()
+            objective3Fish2.text = tier2Fish[0]
+            objective3Count2.text = "2"
         } else if (randNumber == 1) {
-            objective3Fish1.text = tier2Fish[0]
-            objective3Fish2.text = tier2Fish[1]
-            objective3Count1.text = "1"
+            tier1Fish.shuffle()
+            objective3Fish1.text = tier1Fish[0]
+            objective3Count1.text = "3"
+            tier2Fish.shuffle()
+            objective3Fish2.text = tier2Fish[0]
+            objective3Count2.text = "2"
         } else {
+            tier2Fish.shuffle()
             objective3Fish1.text = tier2Fish[0]
-            objective3Fish2.text = tier3Fish[1]
             objective3Count1.text = "1"
+
+            objective3Fish2.text = tier3Fish[tier3Count]
+            objective3Count2.text = "1"
+            tier3Count++
         }
 
         //Change the fish count required when sliding the seek bar

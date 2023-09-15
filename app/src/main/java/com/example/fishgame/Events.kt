@@ -298,10 +298,10 @@ class Events : Activity() {
     //openOnce = true when the events tab is opened for the first time
     //eventCount -> the number of generated events
     //eventOrder -> the random order in which the events are generated
-    private fun saveData(openOnce: Boolean, eventCount: Int, eventOrder: String) {
-        val openOnce = openOnce
-        val eventCount = eventCount.toString()
-        val eventOrder = eventOrder
+    private fun saveData(openOnceInput: Boolean, eventCountInput: Int, eventOrderInput: String) {
+        val openOnce = openOnceInput
+        val eventCount = eventCountInput.toString()
+        val eventOrder = eventOrderInput
 
         try {
             var outputStreamWriter =
