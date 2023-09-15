@@ -5,6 +5,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="0dp"
+    app:layout_constraintHeight_max="wrap"
+    app:layout_constraintHeight_min="wrap"
+    app:layout_constraintWidth_max="wrap"
+    app:layout_constraintWidth_min="wrap"
     tools:context=".Events">
 
     <TextView
@@ -49,12 +54,28 @@
             tools:context=".Rules">
 
             <TextView
-                android:id="@+id/noEventsText"
+                android:id="@+id/turnText1"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="Active on turn 4"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textSize="14sp"
+                android:textStyle="normal|italic"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/skipButton1"
+                style="@style/Widget.AppCompat.Button.Small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:text="No events have been generated"
-                app:layout_constraintStart_toStartOf="parent"
+                android:minHeight="20dp"
+                android:text="SKIP"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textSize="12sp"
+                android:layout_marginTop="-2dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -65,13 +86,13 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textStyle="bold"
                 android:visibility="gone"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintStart_toStartOf="@id/turnText1"
+                app:layout_constraintTop_toBottomOf="@id/turnText1" />
 
             <TextView
                 android:id="@+id/eventText1"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="20dp"
                 android:text="Every player gets a single-use holy fishhook"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textSize="16sp"
@@ -81,20 +102,46 @@
                 app:layout_constraintTop_toBottomOf="@+id/eventTitle1" />
 
             <TextView
+                android:id="@+id/turnText2"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Active on turn 8"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textSize="14sp"
+                android:textStyle="normal|italic"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="@+id/eventText1"
+                app:layout_constraintTop_toBottomOf="@+id/eventText1" />
+
+            <Button
+                android:id="@+id/skipButton2"
+                style="@style/Widget.AppCompat.Button.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="20dp"
+                android:text="SKIP"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textSize="12sp"
+                android:layout_marginTop="-2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/turnText2" />
+
+            <TextView
                 android:id="@+id/eventTitle2"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:text="The Blessing of the Fish God:"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textStyle="bold"
                 android:visibility="gone"
-                app:layout_constraintStart_toStartOf="@id/eventText1"
-                app:layout_constraintTop_toBottomOf="@id/eventText1" />
+                app:layout_constraintStart_toStartOf="@id/turnText2"
+                app:layout_constraintTop_toBottomOf="@id/turnText2" />
 
             <TextView
                 android:id="@+id/eventText2"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="20dp"
                 android:text="Every player gets a single-use holy fishhook"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textSize="16sp"
@@ -104,6 +151,32 @@
                 app:layout_constraintTop_toBottomOf="@+id/eventTitle2" />
 
             <TextView
+                android:id="@+id/turnText3"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Active on turn 12"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textSize="14sp"
+                android:textStyle="normal|italic"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="@+id/eventText2"
+                app:layout_constraintTop_toBottomOf="@+id/eventText2" />
+
+            <Button
+                android:id="@+id/skipButton3"
+                style="@style/Widget.AppCompat.Button.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="20dp"
+                android:text="SKIP"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textSize="12sp"
+                android:layout_marginTop="-2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/turnText3" />
+
+            <TextView
                 android:id="@+id/eventTitle3"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
@@ -111,13 +184,13 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textStyle="bold"
                 android:visibility="gone"
-                app:layout_constraintStart_toStartOf="@id/eventText2"
-                app:layout_constraintTop_toBottomOf="@id/eventText2" />
+                app:layout_constraintStart_toStartOf="@id/turnText3"
+                app:layout_constraintTop_toBottomOf="@id/turnText3" />
 
             <TextView
                 android:id="@+id/eventText3"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="20dp"
                 android:text="Every player gets a single-use holy fishhook"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textSize="16sp"
@@ -127,6 +200,32 @@
                 app:layout_constraintTop_toBottomOf="@+id/eventTitle3" />
 
             <TextView
+                android:id="@+id/turnText4"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Active on turn 16"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textSize="14sp"
+                android:textStyle="normal|italic"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="@+id/eventText3"
+                app:layout_constraintTop_toBottomOf="@+id/eventText3" />
+
+            <Button
+                android:id="@+id/skipButton4"
+                style="@style/Widget.AppCompat.Button.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="20dp"
+                android:text="SKIP"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textSize="12sp"
+                android:layout_marginTop="-2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/turnText4" />
+
+            <TextView
                 android:id="@+id/eventTitle4"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
@@ -134,13 +233,13 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textStyle="bold"
                 android:visibility="gone"
-                app:layout_constraintStart_toStartOf="@id/eventText3"
-                app:layout_constraintTop_toBottomOf="@id/eventText3" />
+                app:layout_constraintStart_toStartOf="@id/turnText4"
+                app:layout_constraintTop_toBottomOf="@id/turnText4" />
 
             <TextView
                 android:id="@+id/eventText4"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="20dp"
                 android:text="Every player gets a single-use holy fishhook"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textSize="16sp"
@@ -150,6 +249,32 @@
                 app:layout_constraintTop_toBottomOf="@+id/eventTitle4" />
 
             <TextView
+                android:id="@+id/turnText5"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Active on turn 20"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textSize="14sp"
+                android:textStyle="normal|italic"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="@+id/eventText4"
+                app:layout_constraintTop_toBottomOf="@+id/eventText4" />
+
+            <Button
+                android:id="@+id/skipButton5"
+                style="@style/Widget.AppCompat.Button.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="20dp"
+                android:text="SKIP"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textSize="12sp"
+                android:layout_marginTop="-2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/turnText5" />
+
+            <TextView
                 android:id="@+id/eventTitle5"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
@@ -157,13 +282,13 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textStyle="bold"
                 android:visibility="gone"
-                app:layout_constraintStart_toStartOf="@id/eventText4"
-                app:layout_constraintTop_toBottomOf="@id/eventText4" />
+                app:layout_constraintStart_toStartOf="@id/turnText5"
+                app:layout_constraintTop_toBottomOf="@id/turnText5" />
 
             <TextView
                 android:id="@+id/eventText5"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="20dp"
                 android:text="Every player gets a single-use holy fishhook"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textSize="16sp"
@@ -173,6 +298,19 @@
                 app:layout_constraintTop_toBottomOf="@+id/eventTitle5" />
 
             <TextView
+                android:id="@+id/turnText6"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Bonus event"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textSize="14sp"
+                android:textStyle="normal|italic"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="@+id/eventText5"
+                app:layout_constraintTop_toBottomOf="@+id/eventText5" />
+
+            <TextView
                 android:id="@+id/eventTitle6"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
@@ -180,13 +318,13 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textStyle="bold"
                 android:visibility="gone"
-                app:layout_constraintStart_toStartOf="@id/eventText5"
-                app:layout_constraintTop_toBottomOf="@id/eventText5" />
+                app:layout_constraintStart_toStartOf="@id/turnText6"
+                app:layout_constraintTop_toBottomOf="@id/turnText6" />
 
             <TextView
                 android:id="@+id/eventText6"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="20dp"
                 android:text="Every player gets a single-use holy fishhook"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textSize="16sp"
@@ -196,6 +334,19 @@
                 app:layout_constraintTop_toBottomOf="@+id/eventTitle6" />
 
             <TextView
+                android:id="@+id/turnText7"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Bonus event"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textSize="14sp"
+                android:textStyle="normal|italic"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="@+id/eventText6"
+                app:layout_constraintTop_toBottomOf="@+id/eventText6" />
+
+            <TextView
                 android:id="@+id/eventTitle7"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
@@ -203,13 +354,13 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textStyle="bold"
                 android:visibility="gone"
-                app:layout_constraintStart_toStartOf="@id/eventText6"
-                app:layout_constraintTop_toBottomOf="@id/eventText6" />
+                app:layout_constraintStart_toStartOf="@id/turnText7"
+                app:layout_constraintTop_toBottomOf="@id/turnText7" />
 
             <TextView
                 android:id="@+id/eventText7"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="20dp"
                 android:text="Every player gets a single-use holy fishhook"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textSize="16sp"
@@ -217,6 +368,114 @@
                 android:visibility="gone"
                 app:layout_constraintStart_toStartOf="@+id/eventTitle7"
                 app:layout_constraintTop_toBottomOf="@+id/eventTitle7" />
+
+            <TextView
+                android:id="@+id/turnText8"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Bonus event"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textSize="14sp"
+                android:textStyle="normal|italic"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="@+id/eventText7"
+                app:layout_constraintTop_toBottomOf="@+id/eventText7" />
+
+            <TextView
+                android:id="@+id/eventTitle8"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="The Blessing of the Fish God:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@id/turnText8"
+                app:layout_constraintTop_toBottomOf="@id/turnText8" />
+
+            <TextView
+                android:id="@+id/eventText8"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:text="Every player gets a single-use holy fishhook"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@+id/eventTitle8"
+                app:layout_constraintTop_toBottomOf="@+id/eventTitle8" />
+
+            <TextView
+                android:id="@+id/turnText9"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Bonus event"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textSize="14sp"
+                android:textStyle="normal|italic"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="@+id/eventText8"
+                app:layout_constraintTop_toBottomOf="@+id/eventText8" />
+
+            <TextView
+                android:id="@+id/eventTitle9"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="The Blessing of the Fish God:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@id/turnText9"
+                app:layout_constraintTop_toBottomOf="@id/turnText9" />
+
+            <TextView
+                android:id="@+id/eventText9"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:text="Every player gets a single-use holy fishhook"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@+id/eventTitle9"
+                app:layout_constraintTop_toBottomOf="@+id/eventTitle9" />
+
+            <TextView
+                android:id="@+id/turnText10"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Bonus event"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textSize="14sp"
+                android:textStyle="normal|italic"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="@+id/eventText9"
+                app:layout_constraintTop_toBottomOf="@+id/eventText9" />
+
+            <TextView
+                android:id="@+id/eventTitle10"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="The Blessing of the Fish God:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@id/turnText10"
+                app:layout_constraintTop_toBottomOf="@id/turnText10" />
+
+            <TextView
+                android:id="@+id/eventText10"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:text="Every player gets a single-use holy fishhook"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@+id/eventTitle10"
+                app:layout_constraintTop_toBottomOf="@+id/eventTitle10" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
@@ -229,7 +488,7 @@
         android:layout_marginTop="30dp"
         android:background="#FFFFFF"
         android:backgroundTint="#ADE5FF"
-        android:text="Generate Event"
+        android:text="Get Event"
         android:textColor="#03495A"
         android:textSize="20sp"
         android:textStyle="bold"

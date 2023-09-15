@@ -21,8 +21,6 @@ import kotlin.random.Random
 
 
 class Events : Activity() {
-    private lateinit var generateEventButton: Button
-
     //Create a class for the events and add all of them into an arraylist
     class Event(var title: String, var text: String) {}
 
@@ -59,6 +57,9 @@ class Events : Activity() {
     private lateinit var eventTitle5: TextView
     private lateinit var eventTitle6: TextView
     private lateinit var eventTitle7: TextView
+    private lateinit var eventTitle8: TextView
+    private lateinit var eventTitle9: TextView
+    private lateinit var eventTitle10: TextView
 
     private lateinit var eventText1: TextView
     private lateinit var eventText2: TextView
@@ -67,8 +68,17 @@ class Events : Activity() {
     private lateinit var eventText5: TextView
     private lateinit var eventText6: TextView
     private lateinit var eventText7: TextView
+    private lateinit var eventText8: TextView
+    private lateinit var eventText9: TextView
+    private lateinit var eventText10: TextView
 
-    private lateinit var noEventsText: TextView
+    private lateinit var generateEventButton: Button
+
+    private lateinit var skipButton1: Button
+    private lateinit var skipButton2: Button
+    private lateinit var skipButton3: Button
+    private lateinit var skipButton4: Button
+    private lateinit var skipButton5: Button
 
     //Create an arraylist for all event titles and for all event text
     private var allEventTitles = arrayListOf<TextView>()
@@ -89,6 +99,9 @@ class Events : Activity() {
         eventTitle5 = findViewById(R.id.eventTitle5)
         eventTitle6 = findViewById(R.id.eventTitle6)
         eventTitle7 = findViewById(R.id.eventTitle7)
+        eventTitle8 = findViewById(R.id.eventTitle8)
+        eventTitle9 = findViewById(R.id.eventTitle9)
+        eventTitle10 = findViewById(R.id.eventTitle10)
 
         eventText1 = findViewById(R.id.eventText1)
         eventText2 = findViewById(R.id.eventText2)
@@ -97,10 +110,17 @@ class Events : Activity() {
         eventText5 = findViewById(R.id.eventText5)
         eventText6 = findViewById(R.id.eventText6)
         eventText7 = findViewById(R.id.eventText7)
-
-        noEventsText = findViewById(R.id.noEventsText)
+        eventText8 = findViewById(R.id.eventText8)
+        eventText9 = findViewById(R.id.eventText9)
+        eventText10 = findViewById(R.id.eventText10)
 
         generateEventButton = findViewById(R.id.generateEventButton)
+
+        skipButton1 = findViewById(R.id.skipButton1)
+        skipButton2 = findViewById(R.id.skipButton2)
+        skipButton3 = findViewById(R.id.skipButton3)
+        skipButton4 = findViewById(R.id.skipButton4)
+        skipButton5 = findViewById(R.id.skipButton5)
 
         //Add all of the event titles to their respective list
         allEventTitles = arrayListOf<TextView>(
@@ -110,7 +130,10 @@ class Events : Activity() {
             eventTitle4,
             eventTitle5,
             eventTitle6,
-            eventTitle7
+            eventTitle7,
+            eventTitle8,
+            eventTitle9,
+            eventTitle10
         )
 
         //Add all of the event text to their respective list
@@ -121,7 +144,10 @@ class Events : Activity() {
             eventText4,
             eventText5,
             eventText6,
-            eventText7
+            eventText7,
+            eventText8,
+            eventText9,
+            eventText10
         )
 
         //Check if the events that has been opened from eventsData.txt
@@ -139,57 +165,128 @@ class Events : Activity() {
             //If it has been opened -> make all previously generated events visible
             var eventCounter = readFromFile()?.get(1)?.toInt()
             if (eventCounter != null) {
-                var eventOrderInts = getShuffledEventOrder()
-                if(eventCounter < 6) {
-                    for (i in 0..eventCounter - 1) {
-                        if (eventCounter < 7) {
-                            noEventsText.visibility = View.GONE
-                            allEventTitles.get(i).text = allEvents[eventOrderInts[i]].title
-                            allEventText.get(i).text = allEvents[eventOrderInts[i]].text
-                            allEventTitles.get(i).visibility = View.VISIBLE
-                            allEventText.get(i).visibility = View.VISIBLE
+                var eventOrderStrings = getShuffledEventOrder()
+                for (i in 0..eventCounter - 1) {
+                    var curEvent = eventOrderStrings[i]
+                    if (curEvent != "s") {
+                        allEventTitles.get(i).text = allEvents[eventOrderStrings[i].toInt()].title
+                        allEventText.get(i).text = allEvents[eventOrderStrings[i].toInt()].text
+                        allEventTitles.get(i).visibility = View.VISIBLE
+                        allEventText.get(i).visibility = View.VISIBLE
+                        if (i == 0) {
+                            skipButton1.isEnabled = false
+                        } else if (i == 1) {
+                            skipButton2.isEnabled = false
+                        } else if (i == 2) {
+                            skipButton3.isEnabled = false
+                        } else if (i == 3) {
+                            skipButton4.isEnabled = false
+                        } else if (i == 4) {
+                            skipButton5.isEnabled = false
                         }
-                    }
-                }else{
-                    for (i in 0..eventCounter) {
-                        if (eventCounter < 7) {
-                            noEventsText.visibility = View.GONE
-                            allEventTitles.get(i).text = allEvents[eventOrderInts[i]].title
-                            allEventText.get(i).text = allEvents[eventOrderInts[i]].text
-                            allEventTitles.get(i).visibility = View.VISIBLE
-                            allEventText.get(i).visibility = View.VISIBLE
+                    } else {
+                        if (i == 0) {
+                            skipButton1.text = "SKIPPED"
+                            skipButton1.isEnabled = false
+                        } else if (i == 1) {
+                            skipButton2.text = "SKIPPED"
+                            skipButton2.isEnabled = false
+                        } else if (i == 2) {
+                            skipButton3.text = "SKIPPED"
+                            skipButton3.isEnabled = false
+                        } else if (i == 3) {
+                            skipButton4.text = "SKIPPED"
+                            skipButton4.isEnabled = false
+                        } else if (i == 4) {
+                            skipButton5.text = "SKIPPED"
+                            skipButton5.isEnabled = false
                         }
                     }
                 }
             }
         }
 
-        //Add a listener for the generateEventButton
+        //Add a listener for the each button
         generateEventButton.setOnClickListener {
             generateEvent()
+        }
+
+        skipButton1.setOnClickListener {
+            skipEvent(0)
+            skipButton1.text = "SKIPPED"
+            skipButton1.isEnabled = false
+        }
+
+        skipButton2.setOnClickListener {
+            skipEvent(1)
+            skipButton2.text = "SKIPPED"
+            skipButton2.isEnabled = false
+        }
+
+        skipButton3.setOnClickListener {
+            skipEvent(2)
+            skipButton3.text = "SKIPPED"
+            skipButton3.isEnabled = false
+        }
+
+        skipButton4.setOnClickListener {
+            skipEvent(3)
+            skipButton4.text = "SKIPPED"
+            skipButton4.isEnabled = false
+        }
+
+        skipButton5.setOnClickListener {
+            skipEvent(4)
+            skipButton5.text = "SKIPPED"
+            skipButton5.isEnabled = false
         }
     }
 
     //On button press -> make the next event from the randomized order visible
     private fun generateEvent() {
-        var eventCounter = readFromFile()?.get(1)?.toInt()
-        if (eventCounter != null) {
-            if (eventCounter < 7) {
-                var eventOrderInts = getShuffledEventOrder()
-
-                noEventsText.visibility = View.GONE
-                allEventTitles[eventCounter].text = allEvents[eventOrderInts[eventCounter]].title
-                allEventText[eventCounter].text = allEvents[eventOrderInts[eventCounter]].text
-                allEventTitles[eventCounter].visibility = View.VISIBLE
-                allEventText[eventCounter].visibility = View.VISIBLE
-                if (eventCounter != 6) {
-                    var eventCount = readFromFile()?.get(2)
-                    if (eventCount != null) {
-                        saveData(true, eventCounter + 1, eventCount)
-                    }
+        var eventCount = readFromFile()?.get(1)?.toInt()
+        if (eventCount != null) {
+            if (eventCount < 10) {
+                var eventOrderStrings = getShuffledEventOrder()
+                var eventOrder = readFromFile()?.get(2)
+                allEventTitles[eventCount].text =
+                    allEvents[eventOrderStrings[eventCount].toInt()].title
+                allEventText[eventCount].text =
+                    allEvents[eventOrderStrings[eventCount].toInt()].text
+                allEventTitles[eventCount].visibility = View.VISIBLE
+                allEventText[eventCount].visibility = View.VISIBLE
+                if (eventCount == 0) {
+                    skipButton1.isEnabled = false
+                } else if (eventCount == 1) {
+                    skipButton2.isEnabled = false
+                } else if (eventCount == 2) {
+                    skipButton3.isEnabled = false
+                } else if (eventCount == 3) {
+                    skipButton4.isEnabled = false
+                } else if (eventCount == 4) {
+                    skipButton5.isEnabled = false
+                }
+                if (eventOrder != null) {
+                    saveData(true, eventCount + 1, eventOrder)
                 }
             }
         }
+    }
+
+    //Skip given event in the event order
+    private fun skipEvent(eventNumber: Int) {
+        var eventOrderChars = readFromFile()?.get(2)?.toCharArray()
+        eventOrderChars?.set(eventNumber, 's')
+        var eventOrder = eventOrderChars?.let { String(it) }
+
+        var eventCount = readFromFile()?.get(1)?.toInt()
+
+        if (eventOrder != null) {
+            if (eventCount != null) {
+                saveData(true, eventCount + 1, eventOrder)
+            }
+        }
+
     }
 
     //Exit the events tab
@@ -215,9 +312,9 @@ class Events : Activity() {
             outputStreamWriter.write("\n")
             outputStreamWriter.write(eventOrder)
             outputStreamWriter.close()
-            Log.i("text", "openOnce: " + openOnce)
-            Log.i("text", "eventCounter: " + eventCount)
-            Log.i("text", "eventOrder: " + eventOrder)
+            //Log.i("text", "opened once: " + openOnce)
+            Log.i("text", "event count: " + eventCount)
+            Log.i("text", "event order: " + eventOrder)
         } catch (e: IOException) {
             Log.e("Exception", "File write failed: " + e.toString());
         }
@@ -253,15 +350,18 @@ class Events : Activity() {
     }
 
     //Return the order of events in integers
-    private fun getShuffledEventOrder(): ArrayList<Int> {
+    private fun getShuffledEventOrder(): ArrayList<String> {
         var eventOrderChars = readFromFile()?.get(2)?.toCharArray()
-        var eventOrderInts = arrayListOf<Int>()
+        var eventOrderString = arrayListOf<String>()
+
         if (eventOrderChars != null) {
             for (i in eventOrderChars) {
-                eventOrderInts.add(i.code - 48)
+                eventOrderString.add(i.toString())
+
             }
         }
-        return eventOrderInts
+
+        return eventOrderString
     }
 
 }
